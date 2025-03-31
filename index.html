@@ -195,10 +195,6 @@
     </style>
 </head>
 <body onload="checkPassword()">
-    <div id="content" style="display: none;">
-        <h1>Welcome to the Protected Page!</h1>
-        <p>This content is hidden behind a password.</p>
-    </div>
     <audio id="bg-music" loop>
         <source src="backgroundAudio.mp3" type="audio/mp3">
     </audio>
@@ -358,11 +354,11 @@
     // Password
     function checkPassword() {
         var password = prompt("Enter Password:");
-        if (password === "1234") {
+        if (password === "Eid@2025") {
             document.getElementById("content").style.display = "block";
         } else {
             alert("Incorrect Password!");
-            window.location.href = "https://google.com"; // Redirect if wrong
+            window.location.href = "";
         }
     }
 
