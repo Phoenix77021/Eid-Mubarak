@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak</title>
+    <link rel="icon" href="https://drive.google.com/uc?export=download&id=1N-iv_AhKOVV9BE51Q1AiH0PhAwhWWxex" type="Crescent">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+        body {
+            background: linear-gradient(to right, #e3f2fd, #bbdefb);
+            color: #004d40;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.5s, color 0.5s;
+            overflow-x: hidden;
+        }
+        .dark-mode .navbar-brand{
+            color: white;
+        }
+        .navbar {
+            background: #80cbc4;
+            transition: background 0.5s;
+            border-bottom: 2px solid #d81b60;
+        }
+        .dark-mode {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #f1f1f1;
+        }
+        .dark-mode .navbar {
+            background: #2c5364;
+            border-bottom: 2px solid #ffcc00;
+        }
+        .theme-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #004d40;
+        }
+        .dark-mode .theme-icon {
+            color: #ffcc00;
+        }
+        h1, h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #d81b60;
+        }
+        p{
+            font-size: 1.1rem;
+            padding: 0 10px;
+        }
+        .dark-mode h1, .dark-mode h2 {
+            color: #ffcc00;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .container #home{
+            margin-top: 100px;
+            position: relative;
+            z-index: 2;
+        }
+        .page {
+            margin-top: 50px;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .btn-custom {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: none;
+            background-color: #d81b60;
+            color: white;
+            cursor: pointer;
+        }
+        .btn-custom:hover {
+            background-color: rgba(216, 27, 96, 0.9);
+            transform: scale(1.05);
+        }
+        .dark-mode .btn-custom {
+            background-color: #ffcc00;
+            color: #000;
+        }
+        .dark-mode .btn-custom:hover{
+            background-color: rgb(255, 140, 0);
+        }
+        .back-arrow {
+            font-size: 2rem;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            color: #d81b60;
+            display: none;
+            z-index: 9999;
+        }
+        .dark-mode .back-arrow {
+            color: #ffcc00;
+        }
+        .back-arrow:hover {
+            transform: scale(1.2);
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 35px 0px;
+        }
+        .gallery-item {
+            flex: 1 1 calc(50% - 15px);
+            max-width: 500px;
+        }
+        .gallery video {
+            position: relative;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: #d81b60;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            z-index: 9999;
+        }
+        .dark-mode .music-control {
+            background: rgba(255, 204, 0, 0.8);
+            color: black;
+        }
+        .music-control:hover {
+            background: rgba(216, 27, 96, 0.9);
+            transform: scale(1.05);
+        }
+        .dark-mode .music-control:hover {
+            background: rgb(255, 140, 0);
+        }
+        .music-icon {
+            font-size: 2rem;
+        }
+        .music-icon:hover {
+            color: rgba(255, 105, 180, 0.8);
+        }
+        @media (max-width: 768px) {
+            h1, h2 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .btn-custom {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+            .theme-icon {
+                font-size: 1.2rem;
+            }
+            .back-arrow {
+                font-size: 1.5rem;
+            }
+            .gallery-item {
+                 flex: 1 1 100%;
+            }
+            .music-control {
+                font-size: 1rem;
+            }
+            .page {
+                margin-bottom: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" loop>
+        <source src="backgroundAudio.mp3" type="audio/mp3">
+    </audio>
+
+    <div id="music-control" class="music-control">
+        <i id="music-icon" class='bx bx-play-circle'></i>
+        <span id="music-text">Play Audio</span>
+    </div>
+    
+    <nav class="navbar">
+        <div class="container-fluid d-flex justify-content-between">
+            <a class="navbar-brand" href="#"><i class='bx bx-moon'></i> <strong>Eid Mubarak</strong></a>
+            <i id="theme-icon" class='bx bx-moon theme-icon' onclick="toggleTheme()"></i>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div id="home" class="page active">
+            <h1><i class='bx bx-moon'></i> Eid Mubarak! <i class='bx bx-moon'></i></h1>
+            <p>"Explore heartfelt greetings and a timeless echoes to celebrate this joyous occasion." ✨💖</p>
+            <button class="btn-custom" onclick="showPage('messages')">Greetings</button>
+            <button class="btn-custom" onclick="showPage('gallery')">Echoes</button>
+        </div>
+        
+        <div id="messages" class="page">
+            <h2>Eid Mubarak! 😎🤏</h2>
+            <p>On this beautiful and joyous occasion of Eid, I pray that Allah fills your heart with endless happiness, blesses your home with peace, illuminates your life with countless blessings, and fulfills all your heartfelt desires. May this Eid bring you closer to your dreams, strengthen your faith, and fill your days with love and laughter. Eid is not just about new clothes, delicious food, or grand celebrations. It is about gratitude, kindness, and spreading joy to those we cherish. And today, I want you to know how special you are. Your presence brings a smile to my face, your words bring comfort to my heart, and your kindness makes the world a better place.</p>
+            <p>As you bow in prayer and thank Allah for His countless blessings, may your heart be light, your soul be free, and your future be bright. May every smile you share return to you multiplied, and may your life be filled with success, good health, and endless love. May all the evil eyes stay away from you, and may you and your family always remain under Allah’s divine protection. May Allah shield you from every harm and bless you with peace, prosperity, and an abundance of joy.</p>
+            <p>You are everything to me. 💖🌹 Every heartbeat, every moment, and every glance remind me how special you are. 🥺✨ No matter where life takes us, my heart will always find its way to you. 🔐♾️ Forever and always, only you. ❤️</p>
+            <p>Eid Mubarak to you and your loved ones. May this Eid be as wonderful as you are. 🤍💓💕💌💗💖🖤</p>
+        </div>
+
+        <div id="gallery" class="page">
+            <h2>Eid Mubarak! 😎🤏</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <video controls>
+                        <source src="videoOne.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="gallery-item">
+                    <video controls>
+                        <source src="videoTwo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="gallery-item">
+                    <video controls>
+                        <source src="videoThree.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="gallery-item">
+                    <video controls>
+                        <source src="videoFour.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    
+    <i class='bx bx-left-arrow-alt back-arrow' onclick="showPage('home')"></i>
+    
+<script>
+    function showPage(pageId) {
+        $('.page').removeClass('active');
+        $('#' + pageId).addClass('active');
+        
+        if (pageId !== 'home') {
+            $('.back-arrow').fadeIn();
+        } else {
+            $('.back-arrow').fadeOut();
+        }
+    }
+    
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+
+        // Change theme icon dynamically
+        const themeIcon = document.getElementById('theme-icon');
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.classList.replace('bx-sun', 'bx-moon');
+        } else {
+            themeIcon.classList.replace('bx-moon', 'bx-sun');
+        }
+    }
+
+    // Set default theme to dark mode on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add('dark-mode');
+
+        // Ensure correct icon on load
+        const themeIcon = document.getElementById('theme-icon');
+        themeIcon.classList.replace('bx-sun', 'bx-moon');
+    });
+
+    //Background Audio
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("bg-music");
+        const musicControl = document.getElementById("music-control");
+        const musicIcon = document.getElementById("music-icon");
+        const musicText = document.getElementById("music-text");
+        let isPlaying = false; // Track if music is playing
+
+        // Function to play music
+        function playAudio() {
+            if (!isPlaying) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.classList.replace("bx-pause-circle", "bx-play-circle");
+                    musicText.innerText = "Pause Audio";
+                }).catch(error => {
+                    console.log("Autoplay blocked, waiting for user interaction.");
+                });
+            }
+        }
+
+        // Toggle music on click
+        musicControl.addEventListener("click", function () {
+            if (audio.paused) {
+                audio.currentTime = 114;
+                audio.play();
+                musicIcon.classList.replace("bx-play-circle", "bx-pause-circle");
+                musicText.innerText = "Pause Audio";
+                isPlaying = true;
+            } else {
+                audio.pause();
+                musicIcon.classList.replace("bx-pause-circle", "bx-play-circle");
+                musicText.innerText = "Play Audio";
+                isPlaying = false;
+            }
+        });
+    });
+
+    // Gallery Music Pause
+    function showPage(pageId) {
+        $('.page').removeClass('active');
+        $('#' + pageId).addClass('active');
+
+        const audio = document.getElementById("bg-music");
+        const musicIcon = document.getElementById("music-icon");
+        const musicText = document.getElementById("music-text");
+    
+        if (pageId === 'gallery') {
+            audio.pause();
+            musicIcon.classList.replace("bx-pause-circle", "bx-play-circle");
+            musicText.innerText = "Play Audio";
+        }
+    
+        if (pageId !== 'home') {
+            $('.back-arrow').fadeIn();
+        } else {
+            $('.back-arrow').fadeOut();
+        }
+    }
+
+</script>
+
+</body>
+</html>
