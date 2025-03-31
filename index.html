@@ -52,6 +52,9 @@
             font-size: 1.1rem;
             padding: 0 10px;
         }
+        #messages p{
+            text-align: justify;
+        }
         .dark-mode h1, .dark-mode h2 {
             color: #ffcc00;
         }
@@ -300,6 +303,11 @@
         const musicText = document.getElementById("music-text");
         let isPlaying = false; // Track if music is playing
 
+        // Function to pause all videos
+        function pauseAllVideos() {
+            document.querySelectorAll("video").forEach(video => video.pause());
+        }
+
         // Function to play music
         function playAudio() {
             if (!isPlaying) {
@@ -321,6 +329,7 @@
                 musicIcon.classList.replace("bx-play-circle", "bx-pause-circle");
                 musicText.innerText = "Pause Audio";
                 isPlaying = true;
+                pauseAllVideos();
             } else {
                 audio.pause();
                 musicIcon.classList.replace("bx-pause-circle", "bx-play-circle");
@@ -343,6 +352,11 @@
             audio.pause();
             musicIcon.classList.replace("bx-pause-circle", "bx-play-circle");
             musicText.innerText = "Play Audio";
+        }
+
+        // Pause all videos when navigating away from "gallery"
+        if (pageId !== 'gallery') {
+            document.querySelectorAll("video").forEach(video => video.pause());
         }
     
         if (pageId !== 'home') {
