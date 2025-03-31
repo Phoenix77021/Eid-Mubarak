@@ -355,15 +355,40 @@
     function checkPassword() {
             let password;
             while (true) {
-                password = prompt("Enter Password:");
-                if (password === "Eid@2025") {
-                    document.getElementById("content").style.display = "block";
-                    break;
-                } else if (password === null) {
-                    alert("You must enter a password!");
-                } else {
-                    alert("Incorrect Password! Try Again.");
-                }
+                let passwordInput = document.createElement("input");
+                passwordInput.type = "password";
+                passwordInput.placeholder = "Enter Password";
+                passwordInput.id = "passwordField";
+                
+                let toggleButton = document.createElement("button");
+                toggleButton.innerText = "Show";
+                toggleButton.onclick = function () {
+                    if (passwordInput.type === "password") {
+                        passwordInput.type = "text";
+                        toggleButton.innerText = "Hide";
+                    } else {
+                        passwordInput.type = "password";
+                        toggleButton.innerText = "Show";
+                    }
+                };
+                
+                let submitButton = document.createElement("button");
+                submitButton.innerText = "Submit";
+                submitButton.onclick = function () {
+                    password = passwordInput.value;
+                    if (password === "Eid@2025") {
+                        document.getElementById("content").style.display = "block";
+                        document.body.innerHTML = ""; // Clear input fields
+                    } else {
+                        alert("Incorrect Password! Try Again.");
+                    }
+                };
+                
+                document.body.innerHTML = ""; // Clear existing content
+                document.body.appendChild(passwordInput);
+                document.body.appendChild(toggleButton);
+                document.body.appendChild(submitButton);
+                return;
             }
         }
 
